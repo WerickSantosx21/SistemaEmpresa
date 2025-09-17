@@ -1,70 +1,126 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
-public class sistema{
+public class sistema {
 
+    // Listas para cada coluna
+    private ArrayList<String> estoque = new ArrayList<>();
+    private ArrayList<String> funcionarios = new ArrayList<>();
+    private ArrayList<String> clientes = new ArrayList<>();
+    private ArrayList<String> produtos = new ArrayList<>();
+    private ArrayList<String> pagamentos = new ArrayList<>();
 
-    @SuppressWarnings("unused")
-    private int id;
-    @SuppressWarnings("unused")
-    private String nome;
-    @SuppressWarnings("unused")
-    private String login;
-    @SuppressWarnings("unused")
-    private String senha;
-
-
-
-public sistema (int id, String nome, String login, String senha) {
-    this.id = id;
-    this.nome = nome;
-    this.login = login;
-    this.senha = senha; 
-}
-  
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-       
-        System.out.println("Bem vindo ao sistema!");
-        System.out.println("Nome:");
-        String nome = scanner.nextLine();
-        System.out.println("Senha:");
-        String senha = scanner.nextLine();
-
-
-        System.out.println("qual coluna deseja acessar? ");
-        System.out.println("1 - Estoque");
-        System.out.println("2 - Funcionario");
-        System.out.println("3 - Cliente");
-        System.out.println("4 - Produto");
-        System.out.println("5 - Pagamento");
+    public sistema() {
+        // Produtos  do estoque
+        estoque.add("Barra de cereal");
+        estoque.add("Energético");
+        estoque.add("Água");
         
+        funcionarios.add("Funcionario 1");
+        clientes.add("Cliente 1");
+        produtos.add("Produto X");
+        pagamentos.add("Pagamento 1");
+    }
 
-        System.out.println("Digite o numero da coluna:");
+    // Métodos listas
+    private void mostrarLista(ArrayList<String> lista, String nomeLista) {
+        System.out.println("Itens de " + nomeLista + ":");
+        if(lista.isEmpty()) {
+            System.out.println("Nenhum item cadastrado.");
+        } else {
+            for (String item : lista) {
+                System.out.println("- " + item);
+            }
+        }
+    }
+
+    private void adicionarItem(ArrayList<String> lista, String nomeLista, Scanner scanner) {
+        scanner.nextLine(); // consumir Enter sobrando
+        System.out.println("Digite o nome do item para adicionar em " + nomeLista + ":");
+        String item = scanner.nextLine();
+        lista.add(item);
+        System.out.println("Item adicionado com sucesso!");
+    }
+
+    private void removerItem(ArrayList<String> lista, String nomeLista, Scanner scanner) {
+        scanner.nextLine(); 
+        System.out.println("Digite o nome do item para remover de " + nomeLista + ":");
+        String item = scanner.nextLine();
+        if(lista.remove(item)) {
+            System.out.println("Item removido com sucesso!");
+        } else {
+            System.out.println("Item não encontrado.");
+        }
+    }
+
+    // Menu  e o submenu
+    private void submenu(ArrayList<String> lista, String nomeLista, Scanner scanner) {
+        System.out.println("\nVocê acessou a coluna " + nomeLista);
+        System.out.println("1 - Ver itens");
+        System.out.println("2 - Adicionar item");
+        System.out.println("3 - Remover item");
+        System.out.print("Escolha a opção: ");
         int opcao = scanner.nextInt();
 
-        switch (opcao) { 
+        switch(opcao) {
             case 1:
-            System.out.println("Voce acessou a coluna estoque");
+                mostrarLista(lista, nomeLista);
                 break;
             case 2:
-            System.out.println("Voce acessou a coluna funcionario");
+                adicionarItem(lista, nomeLista, scanner);
                 break;
             case 3:
-            System.out.println("Voce acessou a coluna cliente");
-                break;
-            case 4:
-            System.out.println("Voce acessou a coluna produto");
-                break;
-            case 5:
-            System.out.println("Voce acessou a coluna pagamento");
+                removerItem(lista, nomeLista, scanner);
                 break;
             default:
-            System.out.println("A coluna inserida nao existe");
-                break;
+                System.out.println("Opção inválida!");
         }
+    }
 
-        scanner.close();
-        
+    // Menu principal
+    public void menuPrincipal() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bem-vindo ao sistema!");
+
+        while(true) {
+            System.out.println("\nQual coluna deseja acessar?");
+            System.out.println("1 - Estoque");
+            System.out.println("2 - Funcionários");
+            System.out.println("3 - Clientes");
+            System.out.println("4 - Produtos");
+            System.out.println("5 - Pagamentos");
+            System.out.println("0 - Sair");
+            System.out.print("Digite o número da coluna: ");
+            int opcao = scanner.nextInt();
+
+            switch(opcao) {
+                case 1:
+                    submenu(estoque, "Estoque", scanner);
+                    break;
+                case 2:
+                    submenu(funcionarios, "Funcionários", scanner);
+                    break;
+                case 3:
+                    submenu(clientes, "Clientes", scanner);
+                    break;
+                case 4:
+                    submenu(produtos, "Produtos", scanner);
+                    break;
+                case 5:
+                    submenu(pagamentos, "Pagamentos", scanner);
+                    break;
+                case 0:
+                    System.out.println("Saindo do sistema...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Coluna inválida!");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        sistema s = new sistema();
+        s.menuPrincipal();
     }
 }
