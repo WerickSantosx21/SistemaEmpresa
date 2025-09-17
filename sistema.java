@@ -2,8 +2,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class sistema {
-
-    // Listas para cada coluna
+     
+     private final String usuario = "Thiago F.";
+     private final String senha ="061221";
+    
+     // Listas para cada coluna
     private ArrayList<String> estoque = new ArrayList<>();
     private ArrayList<String> funcionarios = new ArrayList<>();
     private ArrayList<String> clientes = new ArrayList<>();
@@ -11,10 +14,11 @@ public class sistema {
     private ArrayList<String> pagamentos = new ArrayList<>();
 
     public sistema() {
-        // Produtos  do estoque
+    
         estoque.add("Barra de cereal");
         estoque.add("Energético");
         estoque.add("Água");
+        estoque.add("Vitamina");
         
         funcionarios.add("Funcionario 1");
         clientes.add("Cliente 1");
@@ -33,6 +37,24 @@ public class sistema {
             }
         }
     }
+
+      private boolean login (Scanner scanner) {
+            System.out.println("Digite seu Login e Senha");
+            System.out.print("Usuário: ");
+            String user = scanner.nextLine();
+
+            System.out.print("senha: ");
+            String pass = scanner.nextLine();
+
+            if(user.equals(usuario) && pass.equals(senha)){
+                System.out.println("Login realizado com sucesso");
+                return true;
+            } else {
+                System.out.println("Usuario ou senha incorretos");
+                return false;
+            }
+        }
+
 
     private void adicionarItem(ArrayList<String> lista, String nomeLista, Scanner scanner) {
         scanner.nextLine(); // consumir Enter sobrando
@@ -80,6 +102,15 @@ public class sistema {
     // Menu principal
     public void menuPrincipal() {
         Scanner scanner = new Scanner(System.in);
+
+        //login sistema
+        while (true) {
+            if(login(scanner)){
+                break;
+            }
+            System.out.println("Tente novamente.\n");
+        }
+
         System.out.println("Bem-vindo ao sistema!");
 
         while(true) {
