@@ -15,12 +15,52 @@ public class sistema {
 
     public sistema() {
     
-        estoque.add("Barra de cereal");
-        estoque.add("Energético");
-        estoque.add("Água");
-        estoque.add("Vitamina");
         
-        funcionarios.add("Funcionario 1");
+estoque.add("XP Boost Bar - Chocolate branco, matcha e framboesa");
+estoque.add("Mana Bar - Baunilha azul com spirulina e coco");
+estoque.add("Critical Hit - Amendoim, caramelo salgado e whey isolado");
+estoque.add("GG Easy - Cookies & Cream com biscoito");
+estoque.add("Respawn Bar - Barra tropical sabor energético");
+
+
+estoque.add("Potion Shake - Blueberry Blast");
+estoque.add("Energy Respawn Drink - Sabor energético + cafeína natural");
+estoque.add("Milkshake Pixelado - Algodão-doce e marshmallow");
+estoque.add("Focus Shot - Cafeína + proteína hidrolisada + taurina");
+estoque.add("Stream Fuel - Limão com hortelã");
+
+
+estoque.add("Quest Cookies - Brownie com pedaços de chocolate");
+estoque.add("Level Up Chips - Chips de frango barbecue");
+estoque.add("Mana Gummies - Gummies proteicos sabor energético e melancia");
+estoque.add("XP Crunch - Mix de nuts sabor cappuccino");
+estoque.add("Ultra Boost Popcorn - Pipoca proteica caramelo salgado");
+
+estoque.add("Respawn Ice Cream - Sorvete proteico sabor energético");
+estoque.add("Critical Brownie - Brownie recheado de pasta de amendoim");
+estoque.add("Buffed Donuts - Donuts de canela com chocolate zero");
+estoque.add("Lootcake - Mini bolinhos de chocolate e morango");
+estoque.add("Pixel Pudding - Pudim proteico tiramisù");
+
+
+estoque.add("Cheat Day DLC - Barra triplo chocolate");
+estoque.add("XP Mix - Pack de barrinhas variadas estilo loot box");
+estoque.add("Limited Boss Edition - Shake com glitter (lichia + framboesa)");
+estoque.add("Streamer’s Choice - Sabores exclusivos de streamers");
+estoque.add("Esquiva Perfeita - Snack de queijo proteico apimentado");
+
+        
+funcionarios.add("Werick da Silva Santos");
+funcionarios.add("Luiz Henrique Marques Miranda");
+funcionarios.add("Bruna Gomes da Silva");
+funcionarios.add("Kayo Lacerda Martins Lima");
+funcionarios.add("Rodrigo Gonçalves Rocha");
+funcionarios.add("Rodrigo Medeiros Fernandes");
+funcionarios.add("Guilherme Expedito dos Santos");
+funcionarios.add("Lucas Silva Duarte");
+funcionarios.add("Thiago Antony Ferfoglia Rodrigues");
+funcionarios.add("Rafael Augusto da Silva");
+
         clientes.add("Cliente 1");
         produtos.add("Produto X");
         pagamentos.add("Pagamento 1");
